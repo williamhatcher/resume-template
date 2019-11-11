@@ -1,0 +1,20 @@
+<section class="resume-section p-3 p-lg-5 d-flex justify-items-center" id="education">
+    <div class="w-100">
+        <h2 class="mb-5">Education</h2>
+        {% for school in site.data.education %}
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+            <div class="resume-content">
+                <h3 class="mb-0">{{ school.school }}</h3>
+                {% if school.degree %}
+                <div class="subheading mb-3">{{school.degree}}</div>
+                {% endif %}{% if school.description %}
+                <p>{{school.description| markdownify}}</p>
+                {% endif %}
+            </div>
+            <div class="resume-date text-md-right">
+                <span class="text-primary">{{school.start | date: "%B %Y"}} - {{school.end | date: "%B %Y"}}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
